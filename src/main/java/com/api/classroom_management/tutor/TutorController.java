@@ -1,6 +1,7 @@
 package com.api.classroom_management.tutor;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +20,11 @@ public class TutorController {
 
     @GetMapping
     public List<Tutor> getAllTutors(){
-
         return tutorService.getAllTutors();
+    }
+
+    @GetMapping(path = "{tutorId}")
+    public Tutor getTutorById(@PathVariable("tutorId") Long tutorId){
+        return tutorService.getTutorById(tutorId);
     }
 }

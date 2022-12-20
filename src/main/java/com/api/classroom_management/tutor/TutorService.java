@@ -15,6 +15,9 @@ public class TutorService {
 
     public List<Tutor> getAllTutors() {
         return tutorRepository.findAll();
+    }
 
+    public Tutor getTutorById(Long tutorId) {
+        return tutorRepository.findById(tutorId).orElseThrow();
     }
 }
