@@ -1,8 +1,6 @@
 package com.api.classroom_management.lecture;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,5 +17,11 @@ public class LectureController {
     @GetMapping
     public List<Lecture> getAllLectures(){
         return lectureService.getAllLectures();
+    }
+
+    @PostMapping
+    public void createNewLecture(@RequestBody Lecture lecture){
+
+
     }
 }

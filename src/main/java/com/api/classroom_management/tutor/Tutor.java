@@ -7,11 +7,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
 @Table
-
+@Getter
+@Setter
+@NoArgsConstructor
 public class Tutor extends User {
     @Id
     @SequenceGenerator(name = "tutor_sequence" , sequenceName = "tutor_sequence", allocationSize = 1)
@@ -21,4 +24,8 @@ public class Tutor extends User {
 
     @ManyToMany(mappedBy = "tutors")
     private List<Course> courses;
+
+    public Tutor(String firstName, String lastName, String email, LocalDate birthDate, Integer age) {
+        super(firstName, lastName, email, birthDate, age);
+    }
 }

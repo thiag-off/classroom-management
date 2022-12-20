@@ -1,10 +1,11 @@
-package com.api.classroom_management.tutor;
+package com.api.classroom_management.student;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TutorRepository extends JpaRepository<Tutor, Long> {
+public interface StudentRepository extends JpaRepository<Student, Long> {
+
 
 
 }
