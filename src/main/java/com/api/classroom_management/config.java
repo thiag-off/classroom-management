@@ -46,7 +46,7 @@ public class config {
 
             Course course = new Course("Análise e Desenvolvimento de Sistemas");
 
-            Lecture lecture = new Lecture(course, "Introducao" );
+            Lecture lecture = new Lecture(course, tutor,"Introducao" );
 
             studentRepository.saveAll(List.of(student, student2));
             tutorRepository.save(tutor);

@@ -31,9 +31,10 @@ public class Lecture {
     private String subject;
     @ManyToOne
     @JoinColumn
+    @JsonIgnore
     private Course course;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Tutor tutor;
 
     @ManyToMany
@@ -41,9 +42,14 @@ public class Lecture {
     private List<Student> students;
 
 
-    public Lecture( Course course, String subject) {
+    public Lecture( Course course, Tutor tutor ,String subject) {
 
+        this.tutor = tutor;
         this.course = course;
+        this.subject = subject;
+    }
+
+    public Lecture(String subject){
         this.subject = subject;
     }
 }

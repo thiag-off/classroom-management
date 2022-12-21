@@ -15,4 +15,14 @@ public class LectureService {
     public List<Lecture> getAllLectures() {
         return lectureRepository.findAll();
     }
+
+    public void addNewLecture(Lecture lecture) {
+
+    }
+
+    public Lecture getLectureById(Long lectureId) {
+
+        return lectureRepository.findById(lectureId)
+                        .orElseThrow(() -> new IllegalStateException("COURSE WITH ID " + lectureId +" DOES NOT EXISTS"));
+    }
 }

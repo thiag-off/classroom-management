@@ -19,9 +19,9 @@ public class LectureController {
         return lectureService.getAllLectures();
     }
 
-    @PostMapping
-    public void createNewLecture(@RequestBody Lecture lecture){
-
-
+    @GetMapping(path = "{lectureId}")
+    public Lecture getLecture(@PathVariable("lectureId") Long lectureId){
+        return lectureService.getLectureById(lectureId);
     }
+
 }
