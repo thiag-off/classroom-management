@@ -2,6 +2,8 @@ package com.api.classroom_management;
 
 import com.api.classroom_management.course.Course;
 import com.api.classroom_management.course.CourseRepository;
+import com.api.classroom_management.lecture.Lecture;
+import com.api.classroom_management.lecture.LectureRepository;
 import com.api.classroom_management.student.Student;
 import com.api.classroom_management.student.StudentRepository;
 import com.api.classroom_management.tutor.Tutor;
@@ -21,7 +23,8 @@ public class config {
     @Bean
     CommandLineRunner commandLineRunner(StudentRepository studentRepository,
                                         TutorRepository tutorRepository,
-                                        CourseRepository courseRepository) {
+                                        CourseRepository courseRepository,
+                                        LectureRepository lectureRepository) {
         return args -> {
             Student student = new Student(
                     "Thiago",
@@ -43,10 +46,12 @@ public class config {
 
             Course course = new Course("Análise e Desenvolvimento de Sistemas");
 
+            Lecture lecture = new Lecture(course, "Introducao" );
 
             studentRepository.saveAll(List.of(student, student2));
             tutorRepository.save(tutor);
             courseRepository.save(course);
+            lectureRepository.save(lecture);
 
         };
     }
