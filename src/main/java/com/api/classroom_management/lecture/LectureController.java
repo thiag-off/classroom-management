@@ -24,4 +24,14 @@ public class LectureController {
         return lectureService.getLectureById(lectureId);
     }
 
+    @PostMapping(path = "{courseId}")
+    public void createLecture(
+            @RequestBody Lecture lecture,
+            @PathVariable("courseId") long courseId,
+            @RequestParam long tutorId){
+
+        lectureService.addNewLecture(lecture, courseId, tutorId);
+
+
+    }
 }
