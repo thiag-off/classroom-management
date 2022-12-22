@@ -21,7 +21,7 @@ public class CourseController {
     }
 
     @GetMapping(path = "{courseId}")
-    public Course getCourse(@PathVariable("courseId") Long courseId ){
+    public Course getCourseById(@PathVariable("courseId") Long courseId ){
         return  courseService.getCourseById(courseId);
     }
 

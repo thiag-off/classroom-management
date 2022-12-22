@@ -20,7 +20,7 @@ public class LectureController {
     }
 
     @GetMapping(path = "{lectureId}")
-    public Lecture getLecture(@PathVariable("lectureId") Long lectureId){
+    public Lecture getLectureById(@PathVariable("lectureId") Long lectureId){
         return lectureService.getLectureById(lectureId);
     }
 

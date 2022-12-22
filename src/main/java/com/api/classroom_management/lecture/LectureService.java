@@ -1,5 +1,8 @@
 package com.api.classroom_management.lecture;
 
+import com.api.classroom_management.tutor.TutorService;
+import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -7,6 +10,9 @@ import java.util.List;
 public class LectureService {
 
     private final LectureRepository lectureRepository;
+
+    @Autowired
+    private TutorService tutorService;
 
     public LectureService(LectureRepository lectureRepository) {
         this.lectureRepository = lectureRepository;
@@ -24,5 +30,10 @@ public class LectureService {
 
         return lectureRepository.findById(lectureId)
                         .orElseThrow(() -> new IllegalStateException("COURSE WITH ID " + lectureId +" DOES NOT EXISTS"));
+    }
+
+    @Transactional
+    public void setLectureTutor(Lecture lecture, Long tutorId) {
+        lecture.setTutor(tutorService.getTutorById(tutorId));
     }
 }
