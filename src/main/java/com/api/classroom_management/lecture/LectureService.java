@@ -27,6 +27,7 @@ public class LectureService {
     public void addNewLecture(Lecture lecture, Long courseId, Long tutorId) {
         setLectureTutor(lecture, tutorId);
         setLectureCourse(lecture, courseId);
+        courseService.assignTutor(courseId, tutorId);
 
         lectureRepository.save(lecture);
     }

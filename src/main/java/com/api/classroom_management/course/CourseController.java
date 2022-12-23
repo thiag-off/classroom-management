@@ -25,6 +25,10 @@ public class CourseController {
         return  courseService.getCourseById(courseId);
     }
 
+    @PostMapping
+    public void createCourse(@RequestBody Course course) {
+        courseService.addNewCourse(course);
+    }
     @PostMapping(path = "{courseId}/enrollStudent/{studentId}")
     public void enrollStudent(@PathVariable("courseId") Long courseId,
                               @PathVariable("studentId") Long studentId){
@@ -37,10 +41,12 @@ public class CourseController {
         courseService.assignTutor(courseId, tutorId);
     }
 
-    @PostMapping
-    public void createCourse(@RequestBody Course course) {
-        courseService.addNewCourse(course);
+    @DeleteMapping(path = "courseId")
+    public void deleteCourse(@PathVariable("courseId") Long courseId){
+        courseService.deleteCourse(courseId);
     }
+
+
 
 
 }

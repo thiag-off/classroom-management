@@ -43,10 +43,6 @@ public class CourseService {
         Student student = studentService.getStudentById(studentId);
 
         course.getStudents().add(student);
-
-
-
-
     }
     @Transactional
     public void assignTutor(Long courseId, Long tutorId) {
@@ -54,5 +50,9 @@ public class CourseService {
         Tutor tutor = tutorService.getTutorById(tutorId);
 
         course.getTutors().add(tutor);
+    }
+
+    public void deleteCourse(Long courseId) {
+        courseRepository.deleteById(courseId);
     }
 }

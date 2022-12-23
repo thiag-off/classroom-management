@@ -3,7 +3,9 @@ package com.api.classroom_management.lecture;
 import com.api.classroom_management.course.Course;
 import com.api.classroom_management.student.Student;
 import com.api.classroom_management.tutor.Tutor;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
@@ -17,6 +19,9 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class Lecture {
 
     @Id
@@ -31,7 +36,7 @@ public class Lecture {
     private String subject;
     @ManyToOne
     @JoinColumn
-    @JsonIgnore
+    //@JsonIgnore
     private Course course;
 
     @ManyToOne
