@@ -1,5 +1,6 @@
 package com.api.classroom_management.lecture;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,11 +25,12 @@ public class LectureController {
         return lectureService.getLectureById(lectureId);
     }
 
-    @PostMapping(path = "{courseId}")
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public void createLecture(
             @RequestBody Lecture lecture,
-            @PathVariable("courseId") long courseId,
-            @RequestParam long tutorId){
+            @RequestParam Long courseId,
+            @RequestParam Long tutorId){
 
         lectureService.addNewLecture(lecture, courseId, tutorId);
 

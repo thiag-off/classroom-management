@@ -42,6 +42,7 @@ public class LectureService {
         lecture.setTutor(tutorService.getTutorById(tutorId));
     }
 
+    @Transactional
     public void setLectureCourse(Lecture lecture, Long courseId){
         lecture.setCourse(courseService.getCourseById(courseId));
     }

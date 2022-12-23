@@ -18,6 +18,7 @@ public class TutorService {
     }
 
     public Tutor getTutorById(Long tutorId) {
-        return tutorRepository.findById(tutorId).orElseThrow();
+        return tutorRepository.findById(tutorId).orElseThrow(
+                () -> new IllegalStateException("TUTOR WITH ID " + tutorId +" DOES NOT EXISTS"));
     }
 }
