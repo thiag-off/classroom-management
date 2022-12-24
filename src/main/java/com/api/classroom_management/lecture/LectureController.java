@@ -34,6 +34,9 @@ public class LectureController {
 
         lectureService.addNewLecture(lecture, courseId, tutorId);
 
-
+    }
+    @DeleteMapping(path = "{lectureId}")
+    public void deleteLecture(@PathVariable("lectureId") Long lectureId){
+        lectureService.deleteLecture(lectureId);
     }
 }

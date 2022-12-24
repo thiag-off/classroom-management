@@ -47,4 +47,8 @@ public class LectureService {
     public void setLectureCourse(Lecture lecture, Long courseId){
         lecture.setCourse(courseService.getCourseById(courseId));
     }
+
+    public void deleteLecture(Long lectureId) {
+        lectureRepository.deleteById(lectureId);
+    }
 }
