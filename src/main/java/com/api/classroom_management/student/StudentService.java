@@ -23,4 +23,8 @@ public class StudentService {
         return  studentRepository.findById(studentId)
                 .orElseThrow(() -> new IllegalStateException("COURSE WITH ID " + studentId +" DOES NOT EXISTS"));
     }
+
+    public void deleteStudent(Long studentId) {
+        studentRepository.deleteById(studentId);
+    }
 }

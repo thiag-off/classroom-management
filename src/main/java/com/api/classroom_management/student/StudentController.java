@@ -1,9 +1,6 @@
 package com.api.classroom_management.student;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,6 +23,10 @@ public class StudentController {
     @GetMapping(path = "{studentId}")
     public Student getStudentById(@PathVariable("studentId") Long studentId){
         return studentService.getStudentById(studentId);
+    }
+    @DeleteMapping(path = "{studentId}")
+    public void deleteStudent(@PathVariable("studentId") Long studentId){
+        studentService.deleteStudent(studentId);
     }
 
 }
