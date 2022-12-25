@@ -21,4 +21,8 @@ public class TutorService {
         return tutorRepository.findById(tutorId).orElseThrow(
                 () -> new IllegalStateException("TUTOR WITH ID " + tutorId +" DOES NOT EXISTS"));
     }
+
+    public void deleteTutor(Long tutorId) {
+        tutorRepository.deleteById(tutorId);
+    }
 }
