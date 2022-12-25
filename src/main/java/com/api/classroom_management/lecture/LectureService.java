@@ -1,6 +1,8 @@
 package com.api.classroom_management.lecture;
 
 import com.api.classroom_management.course.CourseService;
+import com.api.classroom_management.student.Student;
+import com.api.classroom_management.student.StudentService;
 import com.api.classroom_management.tutor.TutorService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,9 @@ public class LectureService {
     private TutorService tutorService;
     @Autowired
     private CourseService courseService;
+    @Autowired
+    private StudentService studentService;
+
     public LectureService(LectureRepository lectureRepository) {
         this.lectureRepository = lectureRepository;
     }
@@ -50,5 +55,15 @@ public class LectureService {
 
     public void deleteLecture(Long lectureId) {
         lectureRepository.deleteById(lectureId);
+    }
+
+    @Transactional
+    public void assignStudentToLecture(Long lectureId, Long studentId) {
+
+        Lecture lecture = getLectureById(lectureId);
+        Student student = studentService.getStudentById(studentId);
+
+        lecture.getStudents().add(student);
+
     }
 }

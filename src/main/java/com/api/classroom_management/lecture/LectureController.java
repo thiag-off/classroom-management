@@ -35,6 +35,12 @@ public class LectureController {
         lectureService.addNewLecture(lecture, courseId, tutorId);
 
     }
+    @PostMapping(path = "{lectureId}/assignStudentToLecture/{studentId}")
+    public void assignStudentToLecture(@PathVariable("lectureId") Long lectureId,
+                                       @PathVariable("studentId") Long studentId){
+
+        lectureService.assignStudentToLecture(lectureId, studentId);
+    }
     @DeleteMapping(path = "{lectureId}")
     public void deleteLecture(@PathVariable("lectureId") Long lectureId){
         lectureService.deleteLecture(lectureId);
