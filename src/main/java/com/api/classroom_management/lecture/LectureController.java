@@ -25,6 +25,11 @@ public class LectureController {
         return lectureService.getLectureById(lectureId);
     }
 
+    @GetMapping(path = "{lectureId}/getAttendanceList")
+    public List<String> getAttendanceList(@PathVariable("lectureId") Long lectureId){
+        return lectureService.getAttendanceList(lectureId);
+
+    }
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createLecture(
