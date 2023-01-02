@@ -1,5 +1,6 @@
 package com.api.classroom_management.lecture;
 
+import com.api.classroom_management.attendance.Attendance;
 import com.api.classroom_management.course.Course;
 import com.api.classroom_management.student.Student;
 import com.api.classroom_management.tutor.Tutor;
@@ -45,6 +46,9 @@ public class Lecture {
     @ManyToMany
     @JoinTable
     private List<Student> students;
+
+    @OneToMany
+    private List<Attendance> attendanceList;
 
 
     public Lecture( Course course, Tutor tutor ,String subject) {

@@ -46,6 +46,17 @@ public class LectureController {
 
         lectureService.assignStudentToLecture(lectureId, studentId);
     }
+
+    @PostMapping(path = "{lectureId}/computeLectureAttendance/{studentId}/{isPresent}")
+    public void createLectureAttendance(
+            @PathVariable("lectureId") Long lectureId,
+            @PathVariable("studentId") Long studentId,
+            @PathVariable("isPresent") Boolean isPresent){
+
+        lectureService.createLectureAttendance(lectureId, studentId, isPresent);
+
+    }
+
     @DeleteMapping(path = "{lectureId}")
     public void deleteLecture(@PathVariable("lectureId") Long lectureId){
         lectureService.deleteLecture(lectureId);

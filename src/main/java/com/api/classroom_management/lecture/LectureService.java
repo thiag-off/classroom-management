@@ -1,5 +1,6 @@
 package com.api.classroom_management.lecture;
 
+import com.api.classroom_management.attendance.Attendance;
 import com.api.classroom_management.course.CourseService;
 import com.api.classroom_management.student.Student;
 import com.api.classroom_management.student.StudentService;
@@ -82,6 +83,13 @@ public class LectureService {
         return studentsNames;
 
     }
+    @Transactional
+    public void createLectureAttendance(Long lectureId, Long studentId, Boolean isPresent) {
 
+        Lecture lecture  = getLectureById(lectureId);
+        Student student = studentService.getStudentById(studentId);
+        Attendance attendance = new Attendance(lecture, student, isPresent);
+
+    }
 }
 
