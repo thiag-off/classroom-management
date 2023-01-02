@@ -47,7 +47,7 @@ public class Lecture {
     @JoinTable
     private List<Student> students;
 
-    @OneToMany
+    @OneToMany(mappedBy = "lecture")
     private List<Attendance> attendanceList;
 
 

@@ -83,13 +83,6 @@ public class LectureService {
         return studentsNames;
 
     }
-    @Transactional
-    public void createLectureAttendance(Long lectureId, Long studentId, Boolean isPresent) {
 
-        Lecture lecture  = getLectureById(lectureId);
-        Student student = studentService.getStudentById(studentId);
-        Attendance attendance = new Attendance(lecture, student, isPresent);
-
-    }
 }
 

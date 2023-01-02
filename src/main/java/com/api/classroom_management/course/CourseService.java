@@ -42,8 +42,13 @@ public class CourseService {
         Course course = getCourseById(courseId);
         Student student = studentService.getStudentById(studentId);
 
-        course.getStudents().add(student);
+        if (course.getStudents().contains(student)) {
+            throw new IllegalArgumentException("STUDENT IS ALREADY ENROLLED IN THIS COURSE");
+        } else {
+            course.getStudents().add(student);
+        }
     }
+
     @Transactional
     public void assignTutor(Long courseId, Long tutorId) {
         Course course = getCourseById(courseId);
