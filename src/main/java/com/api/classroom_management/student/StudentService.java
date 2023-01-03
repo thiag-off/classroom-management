@@ -13,18 +13,14 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public List<Student> getAllStudents() {
-
-        return studentRepository.findAll();
-
-    }
+    public List<Student> getAllStudents() {return studentRepository.findAll();}
 
     public Student getStudentById(Long studentId) {
         return  studentRepository.findById(studentId)
                 .orElseThrow(() -> new IllegalStateException("COURSE WITH ID " + studentId +" DOES NOT EXISTS"));
     }
 
-    public void deleteStudent(Long studentId) {
+    public void deleteStudent(Long studentId){
         studentRepository.deleteById(studentId);
     }
 }

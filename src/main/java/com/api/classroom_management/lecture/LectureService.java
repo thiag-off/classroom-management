@@ -65,8 +65,11 @@ public class LectureService {
         Lecture lecture = getLectureById(lectureId);
         Student student = studentService.getStudentById(studentId);
 
-        lecture.getStudents().add(student);
-
+        if(lecture.getStudents().contains(student)){
+            throw new IllegalStateException("STUDENT IS ALREADY ASSIGNED TO THIS LECTURE");
+        }else{
+            lecture.getStudents().add(student);
+        }
     }
 
     public List<String> getAttendanceList(Long lectureId) {

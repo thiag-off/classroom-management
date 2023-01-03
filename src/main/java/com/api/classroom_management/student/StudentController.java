@@ -30,7 +30,7 @@ public class StudentController {
     }
 
     @PutMapping(path = "{studentId}")
-    public void updateTutor(@PathVariable("studentId") Long studentId,
+    public void updateStudent(@PathVariable("studentId") Long studentId,
                             @RequestParam(required = false) String email){
 
 
