@@ -43,21 +43,37 @@ public class CourseService {
         Student student = studentService.getStudentById(studentId);
 
         if (course.getStudents().contains(student)) {
-            throw new IllegalArgumentException("STUDENT IS ALREADY ENROLLED IN THIS COURSE");
+            throw new IllegalArgumentException("STUDENT IS ALREADY ENROLLED TO THIS COURSE");
         } else {
             course.getStudents().add(student);
         }
     }
-
     @Transactional
     public void assignTutor(Long courseId, Long tutorId) {
+
         Course course = getCourseById(courseId);
         Tutor tutor = tutorService.getTutorById(tutorId);
 
-        course.getTutors().add(tutor);
+        if(course.getTutors().contains(tutor)){
+            throw new IllegalStateException("TUTOR IS ALREADY ASSIGNED TO THIS COURSE");
+        }else{
+            course.getTutors().add(tutor);
+        }
+
     }
 
     public void deleteCourse(Long courseId) {
-        courseRepository.deleteById(courseId);
+
+       Boolean exists =  courseRepository.existsById(courseId);
+
+       if(!exists){throw new IllegalStateException("COURSE WITH ID " + courseId + " DOES NOT EXISTS");}
+       else{courseRepository.deleteById(courseId);}
+
+    }
+
+    public List<Course> getCourseByTutor(Long tutorId) {
+
+       return courseRepository.findCourseByTutors_Id(tutorId)
+               .orElseThrow( () -> new IllegalStateException("COURSE NOT FOUND"));
     }
 }

@@ -25,16 +25,23 @@ public class CourseController {
         return  courseService.getCourseById(courseId);
     }
 
+    @GetMapping(path = "getTutor/{tutorId}")
+    public List<Course> getCourseByTutor(@PathVariable("tutorId") Long tutorId){
+        return courseService.getCourseByTutor(tutorId);
+    }
+
     @PostMapping
     public void createCourse(@RequestBody Course course) {
         courseService.addNewCourse(course);
     }
+
     @PostMapping(path = "{courseId}/enrollStudent/{studentId}")
     public void enrollStudent(@PathVariable("courseId") Long courseId,
                               @PathVariable("studentId") Long studentId){
 
         courseService.enrollStudent(courseId, studentId);
     }
+
     @PostMapping(path = "{courseId}/assignTutor/{tutorId}")
     public void assignTutor(@PathVariable("courseId") Long courseId,
                             @PathVariable("tutorId")Long tutorId){
