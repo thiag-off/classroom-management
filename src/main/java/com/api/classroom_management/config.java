@@ -46,7 +46,8 @@ public class config {
                     LocalDate.of(1980, MARCH,27),
                     42);
 
-            Course course = new Course("Análise e Desenvolvimento de Sistemas");
+            Course course = new Course("Análise e Desenvolvimento de Sistemas",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
 
             Lecture lecture = new Lecture(course, tutor,"Introducao" );
 
