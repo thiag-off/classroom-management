@@ -7,7 +7,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/v1/course")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*" , allowedHeaders = "*")
 public class CourseController {
 
     private final CourseService courseService;
