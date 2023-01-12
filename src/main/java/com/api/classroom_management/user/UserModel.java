@@ -15,12 +15,14 @@ import java.util.Collection;
 @Getter
 @Setter
 @NoArgsConstructor
-public class SimpleUser implements UserDetails {
+public class UserModel implements UserDetails {
 
     @Id
     @SequenceGenerator(name = "user_sequence" , sequenceName = "user_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
     private Long Id;
+
+    private String userName;
     private String firstName;
     private String lastName;
     private String email;
@@ -28,7 +30,8 @@ public class SimpleUser implements UserDetails {
     private LocalDate birthDate;
     private Integer age;
 
-    public SimpleUser(String firstName, String lastName, String email, String password, LocalDate birthDate, Integer age) {
+    public UserModel(String userName, String firstName, String lastName, String email, String password, LocalDate birthDate, Integer age) {
+        this.userName = userName;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
