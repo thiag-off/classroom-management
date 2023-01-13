@@ -22,7 +22,7 @@ public class UserModel implements UserDetails {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
     private Long Id;
 
-    private String userName;
+    private String username;
     private String firstName;
     private String lastName;
     private String email;
@@ -30,8 +30,8 @@ public class UserModel implements UserDetails {
     private LocalDate birthDate;
     private Integer age;
 
-    public UserModel(String userName, String firstName, String lastName, String email, String password, LocalDate birthDate, Integer age) {
-        this.userName = userName;
+    public UserModel(String username, String firstName, String lastName, String email, String password, LocalDate birthDate, Integer age) {
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

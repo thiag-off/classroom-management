@@ -18,7 +18,7 @@ import java.util.List;
 
 import static java.util.Calendar.*;
 
-@Configuration
+
 public class config {
 
 
