@@ -22,7 +22,6 @@ public class UserModel implements UserDetails {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
     private Long Id;
 
-    private String username;
     private String firstName;
     private String lastName;
     private String email;
@@ -30,8 +29,8 @@ public class UserModel implements UserDetails {
     private LocalDate birthDate;
     private Integer age;
 
-    public UserModel(String username, String firstName, String lastName, String email, String password, LocalDate birthDate, Integer age) {
-        this.username = username;
+    public UserModel( String firstName, String lastName, String email, String password, LocalDate birthDate, Integer age) {
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -47,26 +46,26 @@ public class UserModel implements UserDetails {
 
     @Override
     public String getUsername() {
-        return null;
+        return getEmail();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }

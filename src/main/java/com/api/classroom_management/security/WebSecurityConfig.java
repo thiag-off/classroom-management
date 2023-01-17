@@ -24,6 +24,8 @@ public class WebSecurityConfig {
                     .anyRequest()
                     .authenticated()
                     .and()
+                    .formLogin()
+                    .and()
                     .csrf().disable();
 
             return http.build();
