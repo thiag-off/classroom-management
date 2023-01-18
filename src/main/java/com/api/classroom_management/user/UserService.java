@@ -17,4 +17,7 @@ public class UserService implements UserDetailsService {
         return userRepository.findByEmail(email)
                 .orElseThrow(()-> new UsernameNotFoundException("EMAIL:" + email +" NOT FOUND"));
     }
+
+
+    public void signUpUser(){}
 }
