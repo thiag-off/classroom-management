@@ -42,7 +42,7 @@ public class LectureService {
     public Lecture getLectureById(Long lectureId) {
 
         return lectureRepository.findById(lectureId)
-                        .orElseThrow(() -> new IllegalStateException("COURSE WITH ID " + lectureId +" DOES NOT EXISTS"));
+                        .orElseThrow(() -> new IllegalStateException("LECTURE WITH ID " + lectureId +" DOES NOT EXISTS"));
     }
 
     @Transactional

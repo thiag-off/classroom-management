@@ -20,10 +20,12 @@ public class WebSecurityConfig {
             http
                     .httpBasic()
                     .and()
-                    .authorizeHttpRequests()
-                    .anyRequest()
-                    .authenticated()
-                    .and()
+                    .authorizeHttpRequests(auth -> auth
+                            .requestMatchers("/api/v*/registration/**").permitAll()
+                            .anyRequest()
+                            .authenticated()
+                    )
+
                     .formLogin()
                     .and()
                     .csrf().disable();

@@ -3,7 +3,9 @@ package com.api.classroom_management.user;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
@@ -19,5 +21,10 @@ public class UserService implements UserDetailsService {
     }
 
 
-    public void signUpUser(){}
+    public String signUpUser(UserModel user){
+
+        userRepository.save(user);
+
+        return "registered";
+    }
 }
