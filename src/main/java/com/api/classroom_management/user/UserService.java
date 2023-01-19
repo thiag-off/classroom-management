@@ -23,6 +23,13 @@ public class UserService implements UserDetailsService {
 
     public String signUpUser(UserModel user){
 
+        Boolean emailExists = userRepository
+                .findByEmail(user.getEmail()).isPresent();
+
+        if (emailExists){
+            throw new IllegalStateException("EMAIL TAKEN");
+        }
+
         userRepository.save(user);
 
         return "registered";
