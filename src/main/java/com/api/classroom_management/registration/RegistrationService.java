@@ -17,7 +17,7 @@ public class RegistrationService {
         this.userService = userService;
     }
 
-    public String register(UserModel user) {
+    public void register(UserModel user) {
         user.setPassword(
                 config
                         .passwordEncoder()
@@ -25,7 +25,7 @@ public class RegistrationService {
         );
 
 
-        return userService.signUpUser(user);
+        userService.signUpUser(user);
 
     }
 }

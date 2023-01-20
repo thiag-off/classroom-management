@@ -21,7 +21,7 @@ public class UserService implements UserDetailsService {
     }
 
 
-    public String signUpUser(UserModel user){
+    public void signUpUser(UserModel user){
 
         Boolean emailExists = userRepository
                 .findByEmail(user.getEmail()).isPresent();
@@ -32,6 +32,6 @@ public class UserService implements UserDetailsService {
 
         userRepository.save(user);
 
-        return "registered";
+
     }
 }
