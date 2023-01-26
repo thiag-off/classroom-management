@@ -15,8 +15,9 @@ public class RegistrationController {
     private final RegistrationService registrationService;
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void register(@RequestBody UserModel user){
-        registrationService.register(user);
+    public void register(@RequestBody UserModel user,
+                         @RequestParam Long roleId){
+        registrationService.register(user, roleId);
 
     }
 

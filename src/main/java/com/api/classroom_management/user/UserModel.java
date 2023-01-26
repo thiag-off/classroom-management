@@ -32,7 +32,7 @@ public class UserModel implements UserDetails {
     private LocalDate birthDate;
     private Integer age;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable
     private List<RoleModel> roles;
 
@@ -45,11 +45,12 @@ public class UserModel implements UserDetails {
         this.password = password;
         this.birthDate = birthDate;
         this.age = age;
+
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return this.roles;
     }
     @Override
     public String getPassword() {
