@@ -21,8 +21,6 @@ public class RoleModel implements GrantedAuthority {
     @Enumerated(EnumType.STRING)
     private RoleName roleName;
 
-
-
     @Override
     public String getAuthority() {
         return this.roleName.toString() ;

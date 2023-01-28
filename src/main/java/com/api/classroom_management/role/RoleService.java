@@ -19,6 +19,6 @@ public class RoleService {
     }
 
     public RoleModel getRoleById(Long roleId){
-        return roleRepository.findById(roleId).orElseThrow(()->new IllegalStateException("ROLE NOT FOUND"));
+        return roleRepository.findById(roleId).orElseThrow(()-> new IllegalStateException("ROLE NOT FOUND"));
     }
 }

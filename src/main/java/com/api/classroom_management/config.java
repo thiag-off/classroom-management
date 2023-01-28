@@ -10,7 +10,6 @@ import com.api.classroom_management.tutor.Tutor;
 import com.api.classroom_management.tutor.TutorRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -33,13 +32,13 @@ public class config {
                     "Fortunato",
                     "thiago@student.com",
                     LocalDate.of(2000, OCTOBER, 04),
-                    22);
+                    22, roleName);
             Student student2 = new Student(
                     "Carol",
                     "Pereira",
                     "carol@student.com",
                     LocalDate.of(2000, OCTOBER, 04),
-                    22);
+                    22, roleName);
             Tutor tutor = new Tutor("Jorge",
                     "Furtado",
                     "jorge@furtado.com",

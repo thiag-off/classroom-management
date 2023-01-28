@@ -53,9 +53,10 @@ public class WebSecurityConfig {
     CommandLineRunner commandLineRunner(RoleRepository roleRepository){
         return args -> {
             RoleModel role = new RoleModel(RoleName.ROLE_ADMIN);
-            RoleModel role1 = new RoleModel(RoleName.ROLE_USER);
+            RoleModel role1 = new RoleModel(RoleName.ROLE_STUDENT);
+            RoleModel role2 = new  RoleModel(RoleName.ROLE_TUTOR);
 
-        roleRepository.saveAll(List.of(role,role1));
+        roleRepository.saveAll(List.of(role,role1,role2));
         };
     }
 
